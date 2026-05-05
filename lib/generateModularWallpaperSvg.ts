@@ -106,9 +106,8 @@ function fitDots(total: number, columns: number, grid: TimeGridConfig): FittedDo
   const radius = diameter / 2;
   const width = columns * diameter + Math.max(0, columns - 1) * gap;
   const height = rows * diameter + Math.max(0, rows - 1) * gap;
-  const topOffset = grid.type === "goal" ? Math.min(220, Math.round(frame.height * 0.18)) : 0;
   const centeredY = frame.y + Math.max(0, (frame.height - height) / 2);
-  const anchoredY = frame.y + Math.min(topOffset, Math.max(0, frame.height - height - reservedLabelSpace));
+  const anchoredY = frame.y + Math.max(0, Math.min(24, frame.height - height - reservedLabelSpace));
 
   return {
     diameter,
