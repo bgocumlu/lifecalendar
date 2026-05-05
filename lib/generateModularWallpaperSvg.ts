@@ -5,10 +5,14 @@ import {
   TimeGridConfig,
 } from "./wallpaperConfig";
 import { resolveWallpaperTheme } from "./resolveWallpaperTheme";
+import TextToSVG from "text-to-svg";
+import path from "node:path";
 
 const weeksPerYear = 52;
 const millisecondsPerDay = 1000 * 60 * 60 * 24;
 const millisecondsPerWeek = millisecondsPerDay * 7;
+const labelFontPath = path.join(process.cwd(), "node_modules", "text-to-svg", "fonts", "ipag.ttf");
+const labelTextToSvg = TextToSVG.loadSync(labelFontPath);
 
 type DotGrid = {
   total: number;
@@ -355,11 +359,16 @@ function renderLabel(config: ModularWallpaperConfig, grid: TimeGridConfig, model
   const fontSize = Math.max(14, Math.min(28, grid.frame.width / 34));
   const y = Math.min(grid.frame.y + grid.frame.height - 8, fit.y + fit.height + fontSize * 2.35);
 
-  return `<text x="${grid.frame.x + grid.frame.width / 2}" y="${y}" text-anchor="middle" fill="${escapeXml(
-    theme.label,
-  )}" opacity="0.68" font-family="DejaVu Sans, Liberation Sans, Noto Sans, Arial, Helvetica, sans-serif" font-size="${fontSize}" font-weight="500" text-rendering="geometricPrecision">${escapeXml(
-    text,
-  )}</text>`;
+  return labelTextToSvg.getPath(text, {
+    x: grid.frame.x + grid.frame.width / 2,
+    y,
+    fontSize,
+    anchor: "center top",
+    attributes: {
+      fill: escapeXml(theme.label),
+      opacity: 0.68,
+    },
+  });
 }
 
 function renderGrid(config: ModularWallpaperConfig, grid: TimeGridConfig, now: Date) {
