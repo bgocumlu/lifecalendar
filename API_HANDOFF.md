@@ -68,6 +68,7 @@ https://YOUR-VERCEL-PROJECT.vercel.app/api/wallpaper?grid=life&theme=midnight&bi
 - `theme`: `midnight`, `paper`, `neon`, `custom`.
 - `width`: output PNG width in pixels.
 - `height`: output PNG height in pixels.
+- `today`: optional device-local render date, format `YYYY-MM-DD`. The app should send this so `year`, `life`, and `goal` use the user's current day instead of the server's timezone day.
 - `birth`: birth date for `life`, format `YYYY-MM-DD`.
 - `life`: expected life years for `life`, integer.
 - `start`: goal start date, format `YYYY-MM-DD`.
@@ -100,6 +101,7 @@ Minimal body:
     "width": 828,
     "height": 1792
   },
+  "today": "2026-05-05",
   "theme": "paper",
   "birthDate": "1990-01-01",
   "lifeYears": 90,
@@ -129,6 +131,7 @@ Minimal body:
 ## Current Product Rules
 
 - First phase focuses on one grid per wallpaper.
+- The app should send `today` as the user's device-local date on every request.
 - `year` dot count is always the number of days in the current year.
 - `life` dot count is always `lifeYears * 52`.
 - `goal` dot count is the number of days between `start` and `target`.

@@ -62,6 +62,7 @@ export function buildModularConfigFromSearchParams(searchParams: URLSearchParams
       width,
       height,
     },
+    currentDate: searchParams.get("today") ?? searchParams.get("currentDate") ?? undefined,
     theme: searchParams.get("theme") ?? "midnight",
     customTheme: {
       background: searchParams.get("customBg") ?? undefined,

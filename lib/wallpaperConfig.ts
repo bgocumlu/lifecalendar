@@ -44,6 +44,7 @@ export type ModularWallpaperConfig = {
     width: number;
     height: number;
   };
+  currentDate?: string;
   theme: ThemeName;
   customTheme: WallpaperTheme;
   birthDate: string;
@@ -62,6 +63,8 @@ type WallpaperConfigInput = Partial<{
     current: unknown;
     label: unknown;
   }>;
+  currentDate: unknown;
+  today: unknown;
   birthDate: unknown;
   lifeYears: unknown;
   markerStyle: unknown;
@@ -339,6 +342,10 @@ export function validateModularWallpaperConfig(input: WallpaperConfigInput): Mod
 
   return {
     canvas,
+    currentDate:
+      input.currentDate || input.today
+        ? sanitizeDate(input.currentDate ?? input.today, today())
+        : undefined,
     theme: sanitizeTheme(input.theme),
     customTheme: sanitizeCustomTheme(input.customTheme),
     birthDate: sanitizeDate(input.birthDate, defaultModularWallpaperConfig.birthDate),

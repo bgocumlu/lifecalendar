@@ -455,10 +455,11 @@ function renderBackground(config: ModularWallpaperConfig) {
   </g>`;
 }
 
-export function generateModularWallpaperSvg(config: ModularWallpaperConfig, now = new Date()) {
+export function generateModularWallpaperSvg(config: ModularWallpaperConfig, now?: Date) {
+  const renderDate = now ?? (config.currentDate ? parseDate(config.currentDate) : new Date());
   const renderedGrids = config.grids
     .filter((grid) => grid.enabled)
-    .map((grid) => renderGrid(config, grid, now))
+    .map((grid) => renderGrid(config, grid, renderDate))
     .join("");
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${config.canvas.width}" height="${config.canvas.height}" viewBox="0 0 ${config.canvas.width} ${config.canvas.height}" role="img" aria-label="Life calendar wallpaper">

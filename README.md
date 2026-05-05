@@ -116,6 +116,7 @@ Modular query params:
 - `life`: life expectancy for life grid
 - `target`: target date for goal grid
 - `start`: optional start date for goal progress
+- `today`: optional device-local render date as `YYYY-MM-DD`; the app should send this so year/life/goal use the user's current day
 - `width`: PNG width
 - `height`: PNG height
 - `density`: default density for all grids
@@ -149,6 +150,7 @@ Each grid can also include `rotation` in degrees. This lets the app place grids 
     "width": 1179,
     "height": 2556
   },
+  "today": "2026-05-05",
   "theme": "midnight",
   "customTheme": {
     "background": "#050505",
