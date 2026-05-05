@@ -31,36 +31,6 @@ type FittedDots = {
   y: number;
 };
 
-const labelGlyphs: Record<string, string[]> = {
-  "0": ["111", "101", "101", "101", "101", "101", "111"],
-  "1": ["010", "110", "010", "010", "010", "010", "111"],
-  "2": ["111", "001", "001", "111", "100", "100", "111"],
-  "3": ["111", "001", "001", "111", "001", "001", "111"],
-  "4": ["101", "101", "101", "111", "001", "001", "001"],
-  "5": ["111", "100", "100", "111", "001", "001", "111"],
-  "6": ["111", "100", "100", "111", "101", "101", "111"],
-  "7": ["111", "001", "001", "010", "010", "010", "010"],
-  "8": ["111", "101", "101", "111", "101", "101", "111"],
-  "9": ["111", "101", "101", "111", "001", "001", "111"],
-  ".": ["0", "0", "0", "0", "0", "0", "1"],
-  "%": ["10001", "10010", "00100", "01000", "10001", "00001", "00000"],
-  a: ["01110", "00001", "01111", "10001", "10001", "10011", "01101"],
-  c: ["0111", "1000", "1000", "1000", "1000", "1000", "0111"],
-  d: ["0001", "0001", "0111", "1001", "1001", "1001", "0111"],
-  e: ["0110", "1001", "1001", "1111", "1000", "1000", "0111"],
-  f: ["0111", "1000", "1000", "1110", "1000", "1000", "1000"],
-  k: ["1001", "1010", "1100", "1000", "1100", "1010", "1001"],
-  l: ["10", "10", "10", "10", "10", "10", "01"],
-  m: ["10001", "11011", "10101", "10101", "10001", "10001", "10001"],
-  o: ["0110", "1001", "1001", "1001", "1001", "1001", "0110"],
-  p: ["1110", "1001", "1001", "1110", "1000", "1000", "1000"],
-  r: ["1011", "1100", "1000", "1000", "1000", "1000", "1000"],
-  s: ["0111", "1000", "1000", "0110", "0001", "0001", "1110"],
-  t: ["010", "010", "111", "010", "010", "010", "001"],
-  w: ["10001", "10001", "10001", "10101", "10101", "10101", "01010"],
-  y: ["1001", "1001", "1001", "0111", "0001", "0001", "1110"],
-};
-
 function escapeXml(value: string) {
   return value
     .replace(/&/g, "&amp;")
@@ -374,66 +344,6 @@ function labelText(grid: TimeGridConfig, model: DotGrid) {
   return `${Math.round((model.elapsed / model.total) * 1000) / 10}% complete`;
 }
 
-function glyphWidth(character: string) {
-  if (character === " ") {
-    return 3;
-  }
-
-  return labelGlyphs[character]?.[0]?.length ?? 3;
-}
-
-function renderVectorLabel(options: {
-  text: string;
-  centerX: number;
-  y: number;
-  color: string;
-  fontSize: number;
-}) {
-  const unit = Math.max(1.6, Math.min(3.4, options.fontSize / 7));
-  const gap = Math.max(0.6, unit * 0.32);
-  const characterGap = unit * 1.25;
-  const characters = options.text.toLowerCase().split("");
-  const width = characters.reduce((sum, character, index) => {
-    return sum + glyphWidth(character) * (unit + gap) + (index === characters.length - 1 ? 0 : characterGap);
-  }, 0);
-  let cursorX = options.centerX - width / 2;
-  const blocks: string[] = [];
-
-  characters.forEach((character) => {
-    if (character === " ") {
-      cursorX += glyphWidth(character) * (unit + gap) + characterGap;
-      return;
-    }
-
-    const glyph = labelGlyphs[character];
-
-    if (!glyph) {
-      cursorX += glyphWidth(character) * (unit + gap) + characterGap;
-      return;
-    }
-
-    glyph.forEach((row, rowIndex) => {
-      row.split("").forEach((cell, columnIndex) => {
-        if (cell !== "1") {
-          return;
-        }
-
-        blocks.push(
-          `<rect x="${cursorX + columnIndex * (unit + gap)}" y="${
-            options.y + rowIndex * (unit + gap)
-          }" width="${unit}" height="${unit}" rx="${Math.max(0.35, unit * 0.24)}" fill="${escapeXml(
-            options.color,
-          )}" opacity="0.68" />`,
-        );
-      });
-    });
-
-    cursorX += glyphWidth(character) * (unit + gap) + characterGap;
-  });
-
-  return `<g>${blocks.join("")}</g>`;
-}
-
 function renderLabel(config: ModularWallpaperConfig, grid: TimeGridConfig, model: DotGrid, fit: FittedDots) {
   const text = labelText(grid, model);
 
@@ -445,13 +355,11 @@ function renderLabel(config: ModularWallpaperConfig, grid: TimeGridConfig, model
   const fontSize = Math.max(14, Math.min(28, grid.frame.width / 34));
   const y = Math.min(grid.frame.y + grid.frame.height - 8, fit.y + fit.height + fontSize * 2.35);
 
-  return renderVectorLabel({
+  return `<text x="${grid.frame.x + grid.frame.width / 2}" y="${y}" text-anchor="middle" fill="${escapeXml(
+    theme.label,
+  )}" opacity="0.68" font-family="DejaVu Sans, Liberation Sans, Noto Sans, Arial, Helvetica, sans-serif" font-size="${fontSize}" font-weight="500" text-rendering="geometricPrecision">${escapeXml(
     text,
-    centerX: grid.frame.x + grid.frame.width / 2,
-    y,
-    color: theme.label,
-    fontSize,
-  });
+  )}</text>`;
 }
 
 function renderGrid(config: ModularWallpaperConfig, grid: TimeGridConfig, now: Date) {
