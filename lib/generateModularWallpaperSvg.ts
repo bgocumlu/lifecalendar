@@ -365,7 +365,7 @@ function renderLabel(config: ModularWallpaperConfig, grid: TimeGridConfig, model
     anchor: "center top",
     attributes: {
       fill: escapeXml(theme.label),
-      opacity: 0.68,
+      opacity: theme.name === "paper" ? 0.92 : 0.68,
     },
   });
 }

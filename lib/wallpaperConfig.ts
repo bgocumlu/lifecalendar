@@ -89,7 +89,7 @@ export const wallpaperThemes: Record<ThemeName, WallpaperTheme> = {
     filled: "#1c1917",
     empty: "#d6d3d1",
     current: "#f97316",
-    label: "#1c1917",
+    label: "#111111",
     shape: "rounded",
   },
   neon: {
