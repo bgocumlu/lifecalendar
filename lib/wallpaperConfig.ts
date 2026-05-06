@@ -223,7 +223,7 @@ function sanitizeDensity(value: unknown): DotDensity {
 
 function defaultDotSize(type: GridType, density: DotDensity) {
   if (type === "life") {
-    return density === "compact" ? 6 : density === "bold" ? 10 : 8;
+    return density === "compact" ? 4 : density === "bold" ? 6 : 5;
   }
 
   if (type === "year") {
@@ -235,7 +235,7 @@ function defaultDotSize(type: GridType, density: DotDensity) {
 
 function defaultDotGap(type: GridType, density: DotDensity) {
   if (type === "life") {
-    return density === "compact" ? 2 : density === "bold" ? 4 : 3;
+    return density === "compact" ? 7 : density === "bold" ? 10 : 9;
   }
 
   if (type === "year") {

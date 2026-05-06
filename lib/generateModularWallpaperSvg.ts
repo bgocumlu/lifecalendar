@@ -337,7 +337,7 @@ function labelText(grid: TimeGridConfig, model: DotGrid) {
   }
 
   if (grid.label === "remaining") {
-    return `${pluralize(Math.max(0, model.total - model.elapsed), model.unit)} left`;
+    return `${pluralize(Math.max(0, model.total - model.current - 1), model.unit)} left`;
   }
 
   if (grid.label === "elapsed") {

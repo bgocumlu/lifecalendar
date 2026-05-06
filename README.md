@@ -68,13 +68,13 @@ https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=year&theme=midnig
 ### Lifetime, Paper, Weeks Left
 
 ```text
-https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=paper&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=8&lifeDotGap=3&label=remaining&v=readme-life-paper-1
+https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=paper&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=5&lifeDotGap=9&label=remaining&v=readme-life-paper-1
 ```
 
 ### Lifetime, Neon, Weeks Left
 
 ```text
-https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=neon&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=8&lifeDotGap=3&label=remaining&marker=glow&v=readme-life-neon-1
+https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=neon&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=5&lifeDotGap=9&label=remaining&marker=glow&v=readme-life-neon-1
 ```
 
 ### Goal, 90 Days, Midnight
@@ -197,7 +197,7 @@ Primary app endpoint for precise layout control. Accepts JSON and returns PNG by
 Custom theme example:
 
 ```text
-https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=custom&customBg=%23050505&customFilled=%23f5f5f5&customEmpty=%233f3f46&customCurrent=%23f97316&customLabel=%23f5f5f5&today=2026-05-05&birth=1985-06-15&life=85&width=1179&height=2556&lifeDot=8&lifeDotGap=3&label=percent&v=readme-custom-1
+https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=custom&customBg=%23050505&customFilled=%23f5f5f5&customEmpty=%233f3f46&customCurrent=%23f97316&customLabel=%23f5f5f5&today=2026-05-05&birth=1985-06-15&life=85&width=1179&height=2556&lifeDot=5&lifeDotGap=9&label=percent&v=readme-custom-1
 ```
 
 ## Vercel Notes

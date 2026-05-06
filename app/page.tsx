@@ -4,21 +4,21 @@ const wallpaperExamples = [
     label: "days left",
     description: "Bugünden yıl sonuna kalan günleri sade bir kilit ekranı olarak gör.",
     image:
-      "/api/wallpaper?grid=year&theme=midnight&today=2026-05-05&width=828&height=1792&yearDot=18&yearDotGap=6&label=remaining&v=landing-midnight-year",
-  },
-  {
-    title: "90 günlük hedef",
-    label: "days left",
-    description: "Kısa dönem hedefini her telefonuna baktığında sessizce hatırla.",
-    image:
-      "/api/wallpaper?grid=goal&theme=midnight&today=2026-05-05&start=2026-05-05&target=2026-08-03&width=828&height=1792&dot=24&dotGap=8&goalLabel=remaining&v=landing-midnight-goal-90",
+      "/api/wallpaper?grid=year&theme=midnight&today=2026-05-06&width=828&height=1792&yearDot=18&yearDotGap=6&label=remaining&v=landing-midnight-year",
   },
   {
     title: "Hayat takvimi",
     label: "weeks left",
     description: "Kalan haftalarını daha sakin, daha anlamlı bir arka plana dönüştür.",
     image:
-      "/api/wallpaper?grid=life&theme=paper&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=8&lifeDotGap=3&label=remaining&v=landing-paper-life",
+      "/api/wallpaper?grid=life&theme=paper&today=2026-05-06&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=5&lifeDotGap=9&label=remaining&v=landing-paper-life",
+  },
+  {
+    title: "90 günlük hedef",
+    label: "days left",
+    description: "Kısa dönem hedefini her telefonuna baktığında sessizce hatırla.",
+    image:
+      "/api/wallpaper?grid=goal&theme=midnight&today=2026-05-06&start=2026-05-06&target=2026-08-04&width=828&height=1792&dot=24&dotGap=8&goalLabel=remaining&v=landing-midnight-goal-90",
   },
 ];
 

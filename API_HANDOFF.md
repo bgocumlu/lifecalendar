@@ -50,19 +50,19 @@ https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=year&theme=paper&
 ### Lifetime, Midnight, Weeks Left
 
 ```text
-https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=midnight&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=8&lifeDotGap=3&label=remaining&v=handoff-life-midnight-1
+https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=midnight&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=5&lifeDotGap=9&label=remaining&v=handoff-life-midnight-1
 ```
 
 ### Lifetime, Paper, Weeks Left
 
 ```text
-https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=paper&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=8&lifeDotGap=3&label=remaining&v=handoff-life-paper-1
+https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=paper&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=5&lifeDotGap=9&label=remaining&v=handoff-life-paper-1
 ```
 
 ### Lifetime, Neon, Weeks Left
 
 ```text
-https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=neon&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=8&lifeDotGap=3&label=remaining&marker=glow&v=handoff-life-neon-1
+https://berkozbek20-lifecalendar.vercel.app/api/wallpaper?grid=life&theme=neon&today=2026-05-05&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=5&lifeDotGap=9&label=remaining&marker=glow&v=handoff-life-neon-1
 ```
 
 ### Goal, 7 Days

@@ -23,6 +23,8 @@ export async function GET(request: Request) {
   }
 
   const params = validateWallpaperParams(searchParams);
+  const legacyCell = searchParams.has("cell") || searchParams.has("cellSize") ? params.cell : undefined;
+  const legacyGap = searchParams.has("gap") ? params.gap : undefined;
   const config = validateModularWallpaperConfig({
     canvas: {
       width: params.width,
@@ -45,8 +47,8 @@ export async function GET(request: Request) {
         type: "life",
         enabled: true,
         density: "balanced",
-        dotSize: params.cell,
-        dotGap: params.gap,
+        dotSize: legacyCell,
+        dotGap: legacyGap,
         label: "percent",
       },
     ],
