@@ -188,26 +188,7 @@ h3 {
 }
 
 .wallpaper-shot {
-  aspect-ratio: 0.72;
-}
-
-.wallpaper-shot img {
-  transform: scale(1.42);
-}
-
-.year-shot img {
-  object-position: center 48%;
-  transform: scale(1.55);
-}
-
-.life-shot img {
-  object-position: center 50%;
-  transform: scale(1.68);
-}
-
-.goal-shot img {
-  object-position: center 45%;
-  transform: scale(1.62);
+  aspect-ratio: 828 / 1792;
 }
 
 .wallpaper-card-copy {
