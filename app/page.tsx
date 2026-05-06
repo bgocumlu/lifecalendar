@@ -11,7 +11,7 @@ const wallpaperExamples = [
     label: "weeks left",
     description: "Kalan haftalarını daha sakin, daha anlamlı bir arka plana dönüştür.",
     image:
-      "/api/wallpaper?grid=life&theme=paper&today=2026-05-06&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=7&lifeDotGap=5&label=remaining&v=landing-paper-life-visible",
+      "/api/wallpaper?grid=life&theme=paper&today=2026-05-06&birth=1990-01-01&life=90&width=828&height=1792&lifeDot=9&lifeDotGap=4&label=remaining&v=landing-paper-life-visible-2",
   },
   {
     title: "90 günlük hedef",
